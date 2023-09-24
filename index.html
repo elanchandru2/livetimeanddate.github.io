@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Stardos+Stencil:wght@700&display=swap" rel="stylesheet">
+<style>
+    body {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+    align-items: center;
+}
+
+.date-time h1 {
+    font-family: 'Stardos Stencil', cursive;
+    font-size: 48px; /* Specify a valid font size */
+    -webkit-box-reflect: below 4px linear-gradient(transparent, rgb(253, 229, 229));
+}
+
+.date-time {
+    transition: color 0.5s ease-in-out; /* Add a smooth color transition */
+}
+
+</style>
+</head>
+
+<body class="bg-black">
+    <script>
+        $(document).ready(function () {
+            function UpdateAndTime() {
+                const update = new Date();
+                const optionForDate = { weekly: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+
+                $('#date').text(update.toLocaleDateString(undefined, optionForDate));
+                $('#time').text(update.toLocaleTimeString());
+            }
+            setInterval(UpdateAndTime, 1000);
+            
+            UpdateAndTime();
+        })
+    </script>
+
+    <div class="date-time text-white">
+        <p id="date"></p>
+        <h1 id="time"></h1>
+    </div>
+
+
+
+
+
+
+</body>
+
+</html>
